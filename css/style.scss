@@ -1,0 +1,24 @@
+// $gray: #201E1F;
+// $blue: #4D7EA8;
+// $azure: #EAFDF8;
+// $yellow: #F6AE2D;
+// $orange: #F26419;
+
+@font-face {
+    font-family: "Roboto";
+    src: url("./../fonts/Roboto/Roboto-Light.ttf");
+}
+
+body {
+    background-color: #201E1F;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    font-family: "Roboto";
+    font-weight: bold;
+    font-size: 25px;
+    color: #4D7EA8;
+}
+
