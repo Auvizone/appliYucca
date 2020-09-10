@@ -1,0 +1,42 @@
+[
+    {
+        "aliment" : "Courgettes",
+        "charge" : "10"
+    },
+    {
+        "aliment" : "Céréales",
+        "charge" : "100"
+    },
+    {
+        "aliment" : "Nutella",
+        "charge" : "200"
+    },
+    {
+        "aliment" : "Carottes",
+        "charge" : "5"
+    },
+    {
+        "aliment" : "Steaks",
+        "charge" : "30"
+    },
+    {
+        "aliment" : "Tomates",
+        "charge" : "20"
+    },
+    {
+        "aliment" : "Pommes de terre",
+        "charge" : "30"
+    },
+    {
+        "aliment" : "Lait",
+        "charge" : "10"
+    },
+    {
+        "aliment" : "Yaourt",
+        "charge" : "40"
+    },
+    {
+        "aliment" : "Pain",
+        "charge" : "10"
+    }
+]

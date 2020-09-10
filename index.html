@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./css/style.scss" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <title>Application Yucca</title>
 </head>
@@ -11,6 +11,17 @@
     <section>
         <div class="title">Application Charge Glycémique</div>
 
+        <div id="selectionnes">
+            <p>Aliments sélectionnés (3 maximum)</p>
+            <div class="selec" id="selec1"></div>
+            <div class="selec" id="selec2"></div>
+            <div class="selec" id="selec3"></div>
+            <button id="remove">Retirer aliments</button>
+        </div>
+        <div id="total"></div>
+        <button id="calcul">Calculer</button>
+
+        <div id="aliments"></div>
     </section>
     
     <script src="./js/app.js"></script>

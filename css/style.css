@@ -1,0 +1,70 @@
+// $gray: #201E1F;
+// $blue: #4D7EA8;
+// $azure: #EAFDF8;
+// $yellow: #F6AE2D;
+// $orange: #F26419;
+
+@font-face {
+    font-family: "Roboto";
+    src: url("./../fonts/Roboto/Roboto-Light.ttf");
+}
+
+body {
+    background-color: #201E1F;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    font-family: "Roboto";
+    font-weight: bold;
+    font-size: 25px;
+    color: #4D7EA8;
+}
+
+#aliments {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 100px;
+}
+
+#selectionnes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.selec {
+    color:#F6AE2D;
+    text-align: center;
+    margin-right: 25px;
+}
+
+.aliment {
+    color:#F26419;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#remove {
+    background-color: #EAFDF8;
+    border-radius: 10px;
+    border: none;
+    height: 40px;
+    width: 100px;
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+}
+
+.boutonAliment {
+    background-color: #EAFDF8;
+    border-radius: 10px;
+    border: none;
+    height: 40px;
+    width: 100px;
+    margin-left: 10px;
+    margin-right: 100px;
+    margin-bottom: 20px;
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+}
