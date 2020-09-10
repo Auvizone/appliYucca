@@ -1,3 +1,11 @@
+class Aliment {
+    constructor(nom, charge) {
+        this.nom = nom;
+        this.charge = charge;
+    }
+}
+
+
 fetch('../data.json')
     .then(response => response.json())
     .then(data => {
@@ -25,6 +33,13 @@ fetch('../data.json')
             iButton.appendChild(textButton);
             document.getElementById('aliments').appendChild(iButton);
 
+            sauvegarde = () => {
+                let nom = data[i].aliment;
+                let charge = data[i].charge;
+                let aliment = new Aliment(nom, charge)
+                console.log(aliment)
+            }
+            
             // fonction selection d'aliments
             selectionner = () => {
                 console.log(nbSelection)
@@ -65,13 +80,17 @@ fetch('../data.json')
                 nbSelection = 0;
             }
 
+            
+
             calcul = () => {
                 let total = +premierAliment + +deuxiemeAliment + +troisiemeAliment;
                 console.log(total);
-                document.getElementById('total').innerHTML = total; 
+                document.getElementById('total').innerHTML = 'La Charge Glycémique du repas est de:' + ' ' + total; 
             }
 
             var boutonAjouter = document.getElementById('idButton' + i).addEventListener('click', selectionner);
+            var boutonSauvegarder = document.getElementById('idButton' + i).addEventListener('click', sauvegarde);
+
             var boutonRemove = document.getElementById('remove').addEventListener('click', btnDelete);
             var calcul = document.getElementById('calcul').addEventListener('click', calcul)
         }

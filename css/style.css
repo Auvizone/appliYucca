@@ -22,11 +22,26 @@ body {
     color: #4D7EA8;
 }
 
+.titreselec {
+    color: #F6AE2D;
+    font-family: "Roboto";
+
+}
+
 #aliments {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     margin-top: 100px;
+}
+
+#total {
+    font-family: "Roboto";
+
+    color: #EAFDF8;
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #selectionnes {
@@ -37,12 +52,14 @@ body {
 }
 
 .selec {
+    font-family: "Roboto";
     color:#F6AE2D;
     text-align: center;
     margin-right: 25px;
 }
 
 .aliment {
+    font-family: "Roboto";
     color:#F26419;
     text-align: center;
     margin-bottom: 20px;
