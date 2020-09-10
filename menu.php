@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(!isset($_SESSION['pseudo'])) {
+    header('Location: index.php');
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +16,8 @@
     <title>Application Yucca</title>
 </head>
 <body>
+<h1>Bienvenue <?php echo ($_SESSION['pseudo']);?></h1>
+        <a href="./logout.php">Déconnexion</a>
     <section>
         <div class="title">Application Charge Glycémique</div>
 

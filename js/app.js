@@ -33,29 +33,45 @@ fetch('../data.json')
             iButton.appendChild(textButton);
             document.getElementById('aliments').appendChild(iButton);
 
-            sauvegarde = () => {
-                let nom = data[i].aliment;
-                let charge = data[i].charge;
+            // enregistrement en objet
+            sauvegarde = (id) => {
+                let nom = data[id].aliment;
+                let charge = data[id].charge;
                 let aliment = new Aliment(nom, charge)
-                console.log(aliment)
+                console.log('aliment', aliment)
+            }
+
+            sauvegarde2 = (id) => {
+                console.log(id)
+                let nom = data[id].aliment;
+                let charge = data[id].charge;
+                let aliment2= new Aliment(nom, charge)
+                console.log('aliment2', aliment2)
+            }
+
+            sauvegarde3 = (id) => {
+                console.log(id)
+                let nom = data[id].aliment;
+                let charge = data[id].charge;
+                let aliment3 = new Aliment(nom, charge)
+                console.log('aliment3', aliment3)
             }
             
             // fonction selection d'aliments
             selectionner = () => {
-                console.log(nbSelection)
                 if( nbSelection === 0) {
                     document.getElementById('selec1').innerHTML = 'Aliment:' + data[i].aliment
                     + '<br>Charge Glycémique:' + data[i].charge
                     nbSelection++;
                     premierAliment = data[i].charge;
-                    console.log(premierAliment);
+                    sauvegarde(i)
                 }
                 else if( nbSelection === 1) {
                     document.getElementById('selec2').innerHTML = 'Aliment:' + data[i].aliment
                     + '<br>Charge Glycémique:' + data[i].charge
                     nbSelection++;
                     deuxiemeAliment = data[i].charge;
-                    console.log(deuxiemeAliment);
+                    sauvegarde2(i)
 
                 }
                 else if( nbSelection === 2) {
@@ -63,7 +79,8 @@ fetch('../data.json')
                     + '<br>Charge Glycémique:' + data[i].charge
                     nbSelection++;
                     troisiemeAliment = data[i].charge;
-                    console.log(troisiemeAliment);
+
+                    sauvegarde3(i)
                 }
                 else(
                     premierAliment = '',
@@ -79,9 +96,7 @@ fetch('../data.json')
                 document.getElementById('selec3').innerHTML = '';
                 nbSelection = 0;
             }
-
-            
-
+            // fonction calcul de la charge glycémique
             calcul = () => {
                 let total = +premierAliment + +deuxiemeAliment + +troisiemeAliment;
                 console.log(total);
@@ -90,7 +105,6 @@ fetch('../data.json')
 
             var boutonAjouter = document.getElementById('idButton' + i).addEventListener('click', selectionner);
             var boutonSauvegarder = document.getElementById('idButton' + i).addEventListener('click', sauvegarde);
-
             var boutonRemove = document.getElementById('remove').addEventListener('click', btnDelete);
             var calcul = document.getElementById('calcul').addEventListener('click', calcul)
         }
