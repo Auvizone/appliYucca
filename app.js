@@ -13,14 +13,14 @@ fetch('data.json')
         let deuxiemeAliment = 0;
         let troisiemeAliment = 0;
         let total = 0;
-        for( let i = 0; i < data.length; i++) {
+        for (let i = 0; i < data.length; i++) {
             // Création liste des aliments
             var iDiv = document.createElement('div');
             iDiv.id = ('id' + i);
             iDiv.className = ('aliment');
             document.getElementById('aliments').appendChild(iDiv);
-            document.getElementById('id' + i).innerHTML = 'Aliment:' + data[i].aliment
-            + '<br>Charge Glycémique:' + data[i].charge;
+            document.getElementById('id' + i).innerHTML = 'Aliment:' + data[i].aliment +
+                '<br>Charge Glycémique:' + data[i].charge;
 
             // Création bouton sélection aliments
             var iButton = document.createElement('button');
@@ -36,27 +36,32 @@ fetch('data.json')
                 let charge = data[id].charge;
                 let aliment = new Aliment(nom, charge)
                 let alimentString = JSON.stringify(aliment);
-                $.ajax({
-                    url: 'json-receive.php',
-                    type: 'post',
-                    data: { aliment: alimentString },
-                    success: function(response){
-                        console.log(response);
-                    }
-                })
+
+                    $.ajax({
+                        url: 'json-receive.php',
+                        type: 'post',
+                        data: {
+                            aliment: alimentString
+                        },
+                        success: function insertAliment(response) {
+                            console.log(response);
+                        }
+                    });
             }
 
             sauvegarde2 = (id) => {
                 console.log(id)
                 let nom = data[id].aliment;
                 let charge = data[id].charge;
-                let aliment2= new Aliment(nom, charge)
+                let aliment2 = new Aliment(nom, charge)
                 let alimentString2 = JSON.stringify(aliment2);
                 $.ajax({
                     url: 'json-receive.php',
                     type: 'post',
-                    data: { aliment2: alimentString2 },
-                    success: function(response){
+                    data: {
+                        aliment2: alimentString2
+                    },
+                    success: function (response) {
                         console.log(response);
                     }
                 })
@@ -71,39 +76,38 @@ fetch('data.json')
                 $.ajax({
                     url: 'json-receive.php',
                     type: 'post',
-                    data: { aliment3: alimentString3 },
-                    success: function(response){
+                    data: {
+                        aliment3: alimentString3
+                    },
+                    success: function (response) {
                         console.log(response);
                     }
                 })
             }
-            
+
             // fonction selection d'aliments
             selectionner = () => {
-                if( nbSelection === 0) {
-                    document.getElementById('selec1').innerHTML = 'Aliment:' + data[i].aliment
-                    + '<br>Charge Glycémique:' + data[i].charge
+                if (nbSelection === 0) {
+                    document.getElementById('selec1').innerHTML = 'Aliment:' + data[i].aliment +
+                        '<br>Charge Glycémique:' + data[i].charge
                     nbSelection++;
                     premierAliment = data[i].charge;
                     sauvegarde(i)
-                }
-                else if( nbSelection === 1) {
-                    document.getElementById('selec2').innerHTML = 'Aliment:' + data[i].aliment
-                    + '<br>Charge Glycémique:' + data[i].charge
+                } else if (nbSelection === 1) {
+                    document.getElementById('selec2').innerHTML = 'Aliment:' + data[i].aliment +
+                        '<br>Charge Glycémique:' + data[i].charge
                     nbSelection++;
                     deuxiemeAliment = data[i].charge;
                     sauvegarde2(i)
 
-                }
-                else if( nbSelection === 2) {
-                    document.getElementById('selec3').innerHTML = 'Aliment:' + data[i].aliment
-                    + '<br>Charge Glycémique:' + data[i].charge
+                } else if (nbSelection === 2) {
+                    document.getElementById('selec3').innerHTML = 'Aliment:' + data[i].aliment +
+                        '<br>Charge Glycémique:' + data[i].charge
                     nbSelection++;
                     troisiemeAliment = data[i].charge;
 
                     sauvegarde3(i)
-                }
-                else(
+                } else(
                     premierAliment = '',
                     deuxiemeAliment = '',
                     troisiemeAliment = '',
@@ -121,7 +125,7 @@ fetch('data.json')
             calcul = () => {
                 let total = +premierAliment + +deuxiemeAliment + +troisiemeAliment;
                 console.log(total);
-                document.getElementById('total').innerHTML = 'La Charge Glycémique du repas est de:' + ' ' + total; 
+                document.getElementById('total').innerHTML = 'La Charge Glycémique du repas est de:' + ' ' + total;
             }
 
             var boutonAjouter = document.getElementById('idButton' + i).addEventListener('click', selectionner);

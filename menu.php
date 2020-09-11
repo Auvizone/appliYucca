@@ -31,6 +31,8 @@ if(!isset($_SESSION['pseudo'])) {
         </div>
         <div id="total"></div>
         <button id="calcul">Calculer</button>
+        <form action=""></form>
+        <button id="ajoutMenu">Ajouter Menu</button>
 
         <div id="aliments"></div>
     </section>

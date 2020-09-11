@@ -3,6 +3,8 @@
 $aliment = $_POST['aliment'];
 $decoded = json_decode($aliment, true);
 
+var_dump($aliment);
+
 $aliment2 = $_POST['aliment2'];
 $decoded = json_decode($aliment2, true);
 

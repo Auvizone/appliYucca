@@ -7,6 +7,7 @@ error_reporting(-1);
 //! DBCO File
 require ('db.php');
 require ('json-receive.php');
+require ('ajout.php');
 
 if (isset($_POST['connexion']) && $_POST['connexion'] == 'connexion') {
 
@@ -31,6 +32,10 @@ if (isset($_POST['connexion']) && $_POST['connexion'] == 'connexion') {
 
         $isPasswordCorrect = password_verify($_POST['password'], $resultat['password']);
 
+        function addDb() {
+            var_dump('test')
+        };
+        
         if($resultat[0] == 1){
             session_start();
             $_SESSION['id_user'] = $resultat['id_user'];
