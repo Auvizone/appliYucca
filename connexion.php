@@ -6,6 +6,7 @@ error_reporting(-1);
 
 //! DBCO File
 require ('db.php');
+require ('json-receive.php');
 
 if (isset($_POST['connexion']) && $_POST['connexion'] == 'connexion') {
 

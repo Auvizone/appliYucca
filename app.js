@@ -5,12 +5,9 @@ class Aliment {
     }
 }
 
-
-fetch('../data.json')
+fetch('data.json')
     .then(response => response.json())
     .then(data => {
-        console.log(data);
-        var i;
         let nbSelection = 0;
         let premierAliment = 0;
         let deuxiemeAliment = 0;
@@ -38,7 +35,15 @@ fetch('../data.json')
                 let nom = data[id].aliment;
                 let charge = data[id].charge;
                 let aliment = new Aliment(nom, charge)
-                console.log('aliment', aliment)
+                let alimentString = JSON.stringify(aliment);
+                $.ajax({
+                    url: 'json-receive.php',
+                    type: 'post',
+                    data: { aliment: alimentString },
+                    success: function(response){
+                        console.log(response);
+                    }
+                })
             }
 
             sauvegarde2 = (id) => {
@@ -46,7 +51,15 @@ fetch('../data.json')
                 let nom = data[id].aliment;
                 let charge = data[id].charge;
                 let aliment2= new Aliment(nom, charge)
-                console.log('aliment2', aliment2)
+                let alimentString2 = JSON.stringify(aliment2);
+                $.ajax({
+                    url: 'json-receive.php',
+                    type: 'post',
+                    data: { aliment2: alimentString2 },
+                    success: function(response){
+                        console.log(response);
+                    }
+                })
             }
 
             sauvegarde3 = (id) => {
@@ -54,7 +67,15 @@ fetch('../data.json')
                 let nom = data[id].aliment;
                 let charge = data[id].charge;
                 let aliment3 = new Aliment(nom, charge)
-                console.log('aliment3', aliment3)
+                let alimentString3 = JSON.stringify(aliment3);
+                $.ajax({
+                    url: 'json-receive.php',
+                    type: 'post',
+                    data: { aliment3: alimentString3 },
+                    success: function(response){
+                        console.log(response);
+                    }
+                })
             }
             
             // fonction selection d'aliments
