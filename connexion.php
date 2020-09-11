@@ -32,9 +32,14 @@ if (isset($_POST['connexion']) && $_POST['connexion'] == 'connexion') {
 
         $isPasswordCorrect = password_verify($_POST['password'], $resultat['password']);
 
-        function addDb() {
-            var_dump('test')
-        };
+        function testfun()
+        {
+            var_dump('ca marche ??');
+        }
+
+        if(array_key_exists('test',$_POST)){
+            testfun();
+        }
         
         if($resultat[0] == 1){
             session_start();

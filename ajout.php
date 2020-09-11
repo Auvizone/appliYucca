@@ -11,3 +11,14 @@ function insertAliment($nom, $charge)
         'charge' => $charge
     ]);
 }
+
+$registration = $_POST['registration'];
+
+if ($registration == "success"){
+    var_dump('ca passe ici');
+    test();
+}
+
+function test() {
+    var_dump('test');
+}

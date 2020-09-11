@@ -31,12 +31,11 @@ fetch('data.json')
             document.getElementById('aliments').appendChild(iButton);
 
             // enregistrement en objet
-            sauvegarde = (id) => {
-                let nom = data[id].aliment;
-                let charge = data[id].charge;
+            sauvegarde = () => {
+                let nom = data[i].aliment;
+                let charge = data[i].charge;
                 let aliment = new Aliment(nom, charge)
                 let alimentString = JSON.stringify(aliment);
-
                     $.ajax({
                         url: 'json-receive.php',
                         type: 'post',
@@ -44,15 +43,13 @@ fetch('data.json')
                             aliment: alimentString
                         },
                         success: function insertAliment(response) {
-                            console.log(response);
                         }
                     });
             }
 
-            sauvegarde2 = (id) => {
-                console.log(id)
-                let nom = data[id].aliment;
-                let charge = data[id].charge;
+            sauvegarde2 = () => {
+                let nom = data[i].aliment;
+                let charge = data[i].charge;
                 let aliment2 = new Aliment(nom, charge)
                 let alimentString2 = JSON.stringify(aliment2);
                 $.ajax({
@@ -62,15 +59,13 @@ fetch('data.json')
                         aliment2: alimentString2
                     },
                     success: function (response) {
-                        console.log(response);
                     }
                 })
             }
 
-            sauvegarde3 = (id) => {
-                console.log(id)
-                let nom = data[id].aliment;
-                let charge = data[id].charge;
+            sauvegarde3 = () => {
+                let nom = data[i].aliment;
+                let charge = data[i].charge;
                 let aliment3 = new Aliment(nom, charge)
                 let alimentString3 = JSON.stringify(aliment3);
                 $.ajax({
@@ -80,7 +75,6 @@ fetch('data.json')
                         aliment3: alimentString3
                     },
                     success: function (response) {
-                        console.log(response);
                     }
                 })
             }
@@ -128,9 +122,28 @@ fetch('data.json')
                 document.getElementById('total').innerHTML = 'La Charge Glycémique du repas est de:' + ' ' + total;
             }
 
-            var boutonAjouter = document.getElementById('idButton' + i).addEventListener('click', selectionner);
-            var boutonSauvegarder = document.getElementById('idButton' + i).addEventListener('click', sauvegarde);
-            var boutonRemove = document.getElementById('remove').addEventListener('click', btnDelete);
-            var calcul = document.getElementById('calcul').addEventListener('click', calcul)
+            submit = () => {
+                console.log('test');
+                function addtoDb () {
+                    $.ajax({
+                        url: "ajout.php",
+                        type: "post",
+                        dataType: 'json',
+                        data:{registration :" success"},
+                        success: function(result){
+                            console.log('resultat');
+                        }
+                    })
+                }
+            }
+    
+                var boutonAjouter = document.getElementById('idButton' + i).addEventListener('click', selectionner);
+                var boutonSauvegarder = document.getElementById('idButton' + i).addEventListener('click', sauvegarde);
+                var boutonRemove = document.getElementById('remove').addEventListener('click', btnDelete);
+                var calcul = document.getElementById('calcul').addEventListener('click', calcul)
+                var boutonSubmit = document.getElementById('ajoutMenu').addEventListener('click', submit)
+
+            
         }
-    })
+        
+    });

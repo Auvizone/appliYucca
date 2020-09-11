@@ -17,7 +17,6 @@ if(!isset($_SESSION['pseudo'])) {
     <title>Application Yucca</title>
 </head>
 <body>
-<h1>Bienvenue <?php echo ($_SESSION['pseudo']);?></h1>
         <a href="./logout.php">Déconnexion</a>
     <section>
         <div class="title">Application Charge Glycémique</div>
@@ -31,7 +30,6 @@ if(!isset($_SESSION['pseudo'])) {
         </div>
         <div id="total"></div>
         <button id="calcul">Calculer</button>
-        <form action=""></form>
         <button id="ajoutMenu">Ajouter Menu</button>
 
         <div id="aliments"></div>
